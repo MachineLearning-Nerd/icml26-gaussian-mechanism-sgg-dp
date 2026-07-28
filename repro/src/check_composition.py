@@ -169,7 +169,7 @@ def broad_sgg_sweep() -> tuple[list[dict], int]:
         (5, 3.5, 6.0),
     )
     cases = [
-        (dimension, alpha, p, beta, compositions)
+        (dimension, alpha, p, scaled_sensitivity, compositions)
         for dimension, alpha, p in mechanisms
         for scaled_sensitivity in (0.10, 0.25, 0.50)
         for compositions in (2, 4, 8, 16)
