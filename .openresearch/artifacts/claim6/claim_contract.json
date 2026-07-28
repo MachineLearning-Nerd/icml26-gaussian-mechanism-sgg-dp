@@ -1,0 +1,18 @@
+{
+  "claim_id": "C5",
+  "paper_anchor": "Section 4.4, Lemma D.1, Algorithm 7 (alg7), Figure 3",
+  "source_url": "https://ar5iv.labs.arxiv.org/html/2606.08681#alg7",
+  "contract": "Algorithm 7 computes the tight composed hockey-stick privacy curve by discretizing the exact SGG privacy-loss CDF and FFT-convolving its PRV; for the l2 special case in Figure 3 it requires less MSE than sequential composition, with a growing gap over k={2,4,8,16,32}.",
+  "exact_figure_regime": {
+    "dimension": 10,
+    "alpha": 9,
+    "p": 1,
+    "epsilon_total": 1,
+    "delta_target": 1e-5,
+    "compositions": [2, 4, 8, 16, 32]
+  },
+  "verifier": "repro/src/check_composition.py::run_composition_checker",
+  "algorithm": "repro/src/algorithm7.py::algorithm7_delta",
+  "failure_behavior": "The inherited cumulative command exits nonzero if the Figure 3 regime, broad sweep, independent checks, controls, or retained claims fail.",
+  "intended_verdict": "VERIFIED"
+}
