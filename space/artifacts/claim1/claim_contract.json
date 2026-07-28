@@ -1,0 +1,17 @@
+{
+  "claim_id": "C0",
+  "paper_anchor": "Theorem 3.1, S3.Thmtheorem1; Theorem B.1",
+  "source_url": "https://ar5iv.labs.arxiv.org/html/2606.08681#S3.Thmtheorem1",
+  "quantifiers": {
+    "epsilon": "every epsilon >= 0",
+    "sensitivity": "every s > 0",
+    "privacy_regime": "there exists delta_star in (0,1), then every delta in (0,delta_star]",
+    "dimension": "limit inferior as integer T tends to infinity",
+    "noise": "every sequence of arbitrary additive-noise laws X_T with E||X_T||^2=T*u0"
+  },
+  "contract": "The worst-direction optimal delta of any equal-MSE additive-noise sequence has liminf at least the Gaussian delta.",
+  "verifier": "repro/src/proof_gaussian_optimality.py::verify_theorem_certificate",
+  "independent_checker": "repro/src/check_asymptotic_finite_t.py::run_finite_t_checker",
+  "failure_behavior": "The inherited cumulative command exits nonzero if a proof obligation, control, finite-T calibration, or retained regression fails.",
+  "intended_verdict": "VERIFIED"
+}

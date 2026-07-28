@@ -11,6 +11,7 @@ import json
 import math
 import os
 import platform
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -31,7 +32,9 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).parent))
 import core
 from check_haar_independent import run_independent_checker
+from check_asymptotic_finite_t import run_finite_t_checker
 from proof_haar import verify_haar_certificate
+from proof_gaussian_optimality import verify_theorem_certificate
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -56,6 +59,17 @@ def claim(identifier: str, anchor: str, passed: bool, evidence: dict, limitation
         "evidence": evidence,
         "limitation": limitation,
     }
+
+
+def current_git_sha() -> str:
+    completed = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    return completed.stdout.strip()
 
 
 def check_c0():
@@ -261,11 +275,32 @@ def main() -> int:
                 "This exact finite analogue independently checks the mixture mechanism; it is not substituted for the universal proof.",
             )
         )
+    if "gaussian_asymptotic_optimality" in CONFIG.get("proofs", []):
+        theorem = verify_theorem_certificate()
+        results.append(
+            claim(
+                "C0-PROOF",
+                "Theorem 3.1 / S3.Thmtheorem1; Lemmas 3.1-3.3; Theorem B.1",
+                theorem["passed"],
+                theorem,
+                "The universal verdict comes from the symbolic derivation; finite-T calibration is reported separately.",
+            )
+        )
+        finite_t = run_finite_t_checker()
+        results.append(
+            claim(
+                "C0-FINITE-T",
+                "Independent calibration of Lemma 3.1's asymptotic step",
+                finite_t["passed"],
+                finite_t,
+                "This dimension/radial-law sweep is scoped corroboration and is not presented as proof of the minimax theorem.",
+            )
+        )
     runtime = time.perf_counter() - started
     payload = {
         "paper": "2606.08681",
         "campaign": CONFIG["campaign"],
-        "git_sha": os.environ.get("ORX_GIT_SHA", "reported-by-run-wrapper"),
+        "git_sha": current_git_sha(),
         "seed": SEED,
         "environment": {
             "python": platform.python_version(),

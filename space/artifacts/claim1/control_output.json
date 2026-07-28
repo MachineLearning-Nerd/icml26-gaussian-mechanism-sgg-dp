@@ -1,0 +1,28 @@
+{
+  "scientific_git_sha": "bc38201f53d152cffbd52c2756f0ee8cd62c37e7",
+  "controls": [
+    {
+      "id": "NC1_remove_equal_MSE",
+      "mutation": "replace E[U]=u0 by U=2u0",
+      "delta_target": 0.001,
+      "g_2u0": 0.000014844564425692622,
+      "residual": 0.0009851554355743075,
+      "rejected": true
+    },
+    {
+      "id": "NC2_remove_high_privacy_regime",
+      "mutation": "claim tangent support at epsilon=1, delta=0.9",
+      "convex_tail": false,
+      "tangent_dominance": false,
+      "minimum_slack": -0.10803549340420182,
+      "rejected": true
+    },
+    {
+      "id": "NC3_remove_asymptotic_qualifier",
+      "mutation": "set sphere-coordinate normal-approximation error to zero at T=2",
+      "kolmogorov_gap": 0.09710570185444495,
+      "rejected": true
+    }
+  ],
+  "all_rejected": true
+}

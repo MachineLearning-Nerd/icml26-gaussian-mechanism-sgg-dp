@@ -15,6 +15,12 @@
     "file": "pages/index.md",
     "children": [
       {
+        "slug": "current-claim1",
+        "title": "CURRENT — Claim 1 Theorem 3.1",
+        "file": "pages/current/claim1/page.md",
+        "children": []
+      },
+      {
         "slug": "current-claim2",
         "title": "CURRENT — Claim 2 Haar proof",
         "file": "pages/current/claim2/page.md",

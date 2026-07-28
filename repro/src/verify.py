@@ -11,6 +11,7 @@ import json
 import math
 import os
 import platform
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -58,6 +59,17 @@ def claim(identifier: str, anchor: str, passed: bool, evidence: dict, limitation
         "evidence": evidence,
         "limitation": limitation,
     }
+
+
+def current_git_sha() -> str:
+    completed = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    return completed.stdout.strip()
 
 
 def check_c0():
@@ -288,7 +300,7 @@ def main() -> int:
     payload = {
         "paper": "2606.08681",
         "campaign": CONFIG["campaign"],
-        "git_sha": os.environ.get("ORX_GIT_SHA", "reported-by-run-wrapper"),
+        "git_sha": current_git_sha(),
         "seed": SEED,
         "environment": {
             "python": platform.python_version(),
