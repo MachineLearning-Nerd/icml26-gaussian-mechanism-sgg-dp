@@ -137,6 +137,7 @@ its exact revision; this report does not claim that the score has changed.
 Post-publication execution of the first candidate exposed one packaging-only
 defect: the audit located `space/` correctly in the GitHub tree but not when
 the Space contents were downloaded at repository root. A stacked child changes
-only that root detection and reruns the complete suite. Space revision
+only that root detection. Both layouts pass independently, and the complete
+formal suite passes 15/15 on the child. Space revision
 `810a2254d95b682c1316864f7c9cdb765a0b76fb` is therefore superseded and is not
 the revision submitted for judging.
