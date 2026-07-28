@@ -31,7 +31,9 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).parent))
 import core
 from check_haar_independent import run_independent_checker
+from check_asymptotic_finite_t import run_finite_t_checker
 from proof_haar import verify_haar_certificate
+from proof_gaussian_optimality import verify_theorem_certificate
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -259,6 +261,27 @@ def main() -> int:
                 independent["passed"],
                 independent,
                 "This exact finite analogue independently checks the mixture mechanism; it is not substituted for the universal proof.",
+            )
+        )
+    if "gaussian_asymptotic_optimality" in CONFIG.get("proofs", []):
+        theorem = verify_theorem_certificate()
+        results.append(
+            claim(
+                "C0-PROOF",
+                "Theorem 3.1 / S3.Thmtheorem1; Lemmas 3.1-3.3; Theorem B.1",
+                theorem["passed"],
+                theorem,
+                "The universal verdict comes from the symbolic derivation; finite-T calibration is reported separately.",
+            )
+        )
+        finite_t = run_finite_t_checker()
+        results.append(
+            claim(
+                "C0-FINITE-T",
+                "Independent calibration of Lemma 3.1's asymptotic step",
+                finite_t["passed"],
+                finite_t,
+                "This dimension/radial-law sweep is scoped corroboration and is not presented as proof of the minimax theorem.",
             )
         )
     runtime = time.perf_counter() - started
