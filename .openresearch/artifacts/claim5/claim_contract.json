@@ -1,0 +1,8 @@
+{
+  "claim_id": "C4 / paper Claim 5",
+  "paper_anchor": "Table 2, Section 3, Proposition 3.1",
+  "contract": "All seven published (epsilon,delta_star) lower bounds satisfy the Gaussian privacy function's tangent-dominance and convex-tail conditions.",
+  "verifier": "repro/src/check_accepted_claims.py::check_table2",
+  "failure_behavior": "The cumulative command exits nonzero if any table row, the out-of-regime control, or a retained claim fails.",
+  "intended_verdict": "VERIFIED"
+}

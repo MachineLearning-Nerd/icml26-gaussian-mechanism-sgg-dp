@@ -33,6 +33,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 import core
 from check_haar_independent import run_independent_checker
 from check_asymptotic_finite_t import run_finite_t_checker
+from check_accepted_claims import run_accepted_claim_checkers
 from check_composition import run_composition_checker
 from proof_haar import verify_haar_certificate
 from proof_gaussian_optimality import verify_theorem_certificate
@@ -298,6 +299,23 @@ def main() -> int:
                 "Exact paper regime plus broad SGG validation; unpublished Figure 3 coordinates and numerical settings prevent coordinate-for-coordinate comparison.",
             )
         )
+    if CONFIG.get("accepted_claim_checkers"):
+        accepted = run_accepted_claim_checkers()
+        anchors = {
+            "C2-INDEPENDENT": "Definitions 4.1-4.2 and Proposition 4.1",
+            "C3-INDEPENDENT": "Figure 2 / Section 4.3",
+            "C4-INDEPENDENT": "Table 2 / Section 3 and Proposition 3.1",
+        }
+        for identifier, evidence in accepted["claims"].items():
+            results.append(
+                claim(
+                    identifier,
+                    anchors[identifier],
+                    evidence["passed"],
+                    evidence,
+                    "Independent current regression for previously full-credit evidence; historical judged values remain preserved and reachable.",
+                )
+            )
         finite_t = run_finite_t_checker()
         results.append(
             claim(

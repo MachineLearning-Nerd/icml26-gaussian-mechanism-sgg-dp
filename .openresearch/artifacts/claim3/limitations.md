@@ -1,6 +1,4 @@
-# Limitations and deviations
+# Paper Claim 3 limitations
 
-The verifier establishes the normalization and the two named special cases. It
-does not claim that every member of the SGG family has better utility than a
-Gaussian mechanism; that is a different, parameter-dependent claim.
-
+The normalization and special cases are analytic identities; the numerical
+quadrature is an independent executable regression, not their logical basis.
