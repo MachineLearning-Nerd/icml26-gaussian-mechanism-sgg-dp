@@ -15,7 +15,9 @@ from urllib.parse import unquote
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SPACE = ROOT / "space"
+# In the GitHub reproduction repo, the candidate lives under ``space/``.
+# In a downloaded Hugging Face Space, these same files are at repository root.
+SPACE = ROOT / "space" if (ROOT / "space").is_dir() else ROOT
 ENTRYPOINTS = ("README.md", "logbook.json", "pages/index.md")
 CURRENT_PAGES = tuple(f"pages/current/claim{i}/page.md" for i in range(1, 7))
 RELEASE_PAGES = (

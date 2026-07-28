@@ -53,6 +53,16 @@ successful run used the pinned
 `ghcr.io/astral-sh/uv:python3.12-bookworm-slim` image and did not change code,
 configuration, or the fixed command.
 
+## Superseded first publication
+
+Space revision `810a2254d95b682c1316864f7c9cdb765a0b76fb` is a preserved,
+superseded candidate. Post-publication execution showed that
+`repro/src/release_audit.py` assumed the GitHub `space/` subdirectory layout;
+a downloaded Space places those files at repository root. The stacked
+`orx/standalone-space-root-execution` child changes only this path detection,
+then reruns the entire fixed command. No scientific result, threshold,
+tolerance, seed, or verdict changes.
+
 ## Experiment tree and evidence paths
 
 The stacked lineage is: locked 9/12 baseline → Table 2 tolerance calibration →
