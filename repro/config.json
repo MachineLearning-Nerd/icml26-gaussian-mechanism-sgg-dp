@@ -1,0 +1,13 @@
+{
+  "campaign": "baseline",
+  "paper": "2606.08681",
+  "seed": 20260728,
+  "compute_plan": {
+    "backend": "local",
+    "flavor": "local-single-core",
+    "estimated_cores": 1,
+    "estimated_runtime_seconds": 90
+  },
+  "claims": ["C0", "C1", "C2", "C3", "C4", "C5"]
+}
+

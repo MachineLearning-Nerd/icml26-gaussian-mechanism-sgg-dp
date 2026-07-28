@@ -1,0 +1,10 @@
+{
+  "claim_id": "C2",
+  "paper_anchor": "Definitions 4.1-4.2, Section 4",
+  "source_url": "https://ar5iv.labs.arxiv.org/html/2606.08681#S4",
+  "contract": "For alpha>-1, beta>0, p>0 the stated generalized-gamma radial density integrates to one; alpha=T-1,p=2,beta=1/(2*sigma^2) recovers Gaussian radial MSE T*sigma^2; alpha=T-1,p=1,beta=1/theta recovers ell2-Laplace radial MSE theta^2*T*(T+1).",
+  "verifier": "repro/src/verify.py::check_c2",
+  "failure_behavior": "The cumulative verifier exits nonzero if any identity exceeds its stated tolerance.",
+  "status": "VERIFIED"
+}
+
