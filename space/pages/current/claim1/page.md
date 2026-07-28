@@ -97,8 +97,11 @@ uv run --frozen python repro/src/verify.py
 
 Download the [complete raw JSON](../../../artifacts/claim1/raw_output.json) and
 [negative-control JSON](../../../artifacts/claim1/control_output.json).
-Executable source, the exact lockfile, and the claim contract are included in
-this candidate.
+[Proof verifier](../../../repro/src/proof_gaussian_optimality.py),
+[finite-\(T\) checker](../../../repro/src/check_asymptotic_finite_t.py),
+[cumulative entrypoint](../../../repro/src/verify.py), the
+[claim contract](../../../artifacts/claim1/claim_contract.json), and the exact
+lockfile are included in this candidate.
 
 ## Limitations
 

@@ -1,0 +1,8 @@
+{
+  "claim_id": "C2 / paper Claim 3",
+  "paper_anchor": "Definitions 4.1-4.2 and Proposition 4.1",
+  "contract": "The stated SGG radial density normalizes for alpha>-1,beta>0,p>0 and contains the Gaussian and spherical l2 mechanisms as the declared special cases.",
+  "verifier": "repro/src/check_accepted_claims.py::check_sgg_family",
+  "failure_behavior": "The cumulative command exits nonzero on a normalization, identity, control, or retained-claim failure.",
+  "intended_verdict": "VERIFIED"
+}

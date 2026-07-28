@@ -1,5 +1,5 @@
 {
-  "campaign": "evaluator-visible-claim-6-milestone",
+  "campaign": "evaluator-visible-claims-3-to-5-milestone",
   "paper": "2606.08681",
   "seed": 20260728,
   "compute_plan": {
@@ -10,5 +10,6 @@
   },
   "claims": ["C0", "C1", "C2", "C3", "C4", "C5"],
   "proofs": ["haar_symmetrization", "gaussian_asymptotic_optimality"],
-  "composition": "algorithm7"
+  "composition": "algorithm7",
+  "accepted_claim_checkers": true
 }

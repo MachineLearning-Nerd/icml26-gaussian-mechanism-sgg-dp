@@ -110,8 +110,11 @@ uv run --frozen python repro/src/verify.py
 Download the [complete raw JSON](../../../artifacts/claim6/raw_output.json),
 [Figure 3 CSV](../../../artifacts/claim6/figure3.csv), and
 [negative-control JSON](../../../artifacts/claim6/control_output.json).
-The candidate also contains the executable Algorithm 7 source, checker,
-contract, method, exact lockfile, and failure behavior.
+The [Algorithm 7 source](../../../repro/src/algorithm7.py),
+[independent checker](../../../repro/src/check_composition.py),
+[cumulative entrypoint](../../../repro/src/verify.py), and
+[claim contract](../../../artifacts/claim6/claim_contract.json) are directly
+downloadable with the exact lockfile and failure behavior.
 
 ## Limitations
 

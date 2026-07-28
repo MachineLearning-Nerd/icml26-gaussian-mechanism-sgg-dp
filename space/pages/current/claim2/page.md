@@ -70,6 +70,12 @@ verifier, proof verifier, and independent checker. The process exits nonzero if
 any proof obligation, independent check, negative control, or retained
 full-credit regression fails.
 
+[Proof verifier](../../../repro/src/proof_haar.py),
+[independent checker](../../../repro/src/check_haar_independent.py),
+[cumulative entrypoint](../../../repro/src/verify.py), and
+[claim contract](../../../artifacts/claim2/claim_contract.json) are directly
+downloadable.
+
 ## Limitations
 
 This is a machine-checked structured derivation, not a Lean/Coq kernel proof.
@@ -77,4 +83,3 @@ The standard imported facts—Haar left invariance, orthogonal isometry, and
 hockey-stick invariance under measurable bijections—are listed explicitly.
 The previous Gaussian instance is preserved only as historical corroboration
 and is not the current verifier.
-

@@ -1,0 +1,12 @@
+{
+  "git_sha": "3a38e9ec8587c59f15192c21428de092059b781f",
+  "controls": [
+    {
+      "id": "NC_C3_omit_factor_p",
+      "mutated_integral_at_p2": 0.5,
+      "residual": 0.5,
+      "rejected": true
+    }
+  ],
+  "all_rejected": true
+}

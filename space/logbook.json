@@ -27,6 +27,24 @@
         "children": []
       },
       {
+        "slug": "current-claim3",
+        "title": "CURRENT — Claim 3 SGG family",
+        "file": "pages/current/claim3/page.md",
+        "children": []
+      },
+      {
+        "slug": "current-claim4",
+        "title": "CURRENT — Claim 4 Figure 2",
+        "file": "pages/current/claim4/page.md",
+        "children": []
+      },
+      {
+        "slug": "current-claim5",
+        "title": "CURRENT — Claim 5 Table 2",
+        "file": "pages/current/claim5/page.md",
+        "children": []
+      },
+      {
         "slug": "current-claim6",
         "title": "CURRENT — Claim 6 Algorithm 7",
         "file": "pages/current/claim6/page.md",

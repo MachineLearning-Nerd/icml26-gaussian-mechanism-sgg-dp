@@ -1,0 +1,20 @@
+{
+  "git_sha": "3a38e9ec8587c59f15192c21428de092059b781f",
+  "controls": [
+    {
+      "id": "NC_C5_extend_threshold_to_delta_0.9",
+      "mutated_row": {
+        "epsilon": 1,
+        "delta_star": 0.9,
+        "u0": 0.07191646824487513,
+        "analytic_tangent_slope": -2.892737901160772,
+        "minimum_tangent_slack": -0.10803549340954666,
+        "minimum_slope_increment": -0.0007810622667761002,
+        "tangent_dominance": false,
+        "convex_tail": false
+      },
+      "rejected": true
+    }
+  ],
+  "all_rejected": true
+}

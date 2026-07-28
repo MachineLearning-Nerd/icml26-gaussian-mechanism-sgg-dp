@@ -1,0 +1,8 @@
+{
+  "claim_id": "C3 / paper Claim 4",
+  "paper_anchor": "Figure 2 and Section 4.3",
+  "contract": "At epsilon=delta=0.1, selected low-dimensional SGG mechanisms improve MSE by up to about 15% over Gaussian, with the demonstrated advantage shrinking from T=2 through T=5.",
+  "verifier": "repro/src/check_accepted_claims.py::check_figure2",
+  "failure_behavior": "The cumulative command exits nonzero if the independent QMC confidence/trend gate, Gaussian control, or retained evidence fails.",
+  "intended_verdict": "VERIFIED"
+}
