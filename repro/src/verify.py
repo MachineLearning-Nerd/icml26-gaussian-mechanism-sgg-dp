@@ -30,6 +30,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).parent))
 import core
+from proof_haar import verify_haar_certificate
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -238,6 +239,17 @@ def main() -> int:
     started = time.perf_counter()
     checks = [check_c0, check_c1, check_c2, check_c3, check_c4, check_c5]
     results = [check() for check in checks]
+    if "haar_symmetrization" in CONFIG.get("proofs", []):
+        proof = verify_haar_certificate()
+        results.append(
+            claim(
+                "C1-PROOF",
+                "Lemma 3.3 / S3.Thmlemma3 and Appendix B A2.6",
+                proof["passed"],
+                proof,
+                "No finite sweep is promoted to proof; the certificate reconstructs the universally quantified derivation from Haar and orthogonality assumptions.",
+            )
+        )
     runtime = time.perf_counter() - started
     payload = {
         "paper": "2606.08681",
