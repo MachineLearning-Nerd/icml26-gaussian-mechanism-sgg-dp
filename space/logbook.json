@@ -51,6 +51,24 @@
         "children": []
       },
       {
+        "slug": "current-visibility",
+        "title": "CURRENT — evaluator visibility matrix",
+        "file": "pages/current/visibility/page.md",
+        "children": []
+      },
+      {
+        "slug": "current-release",
+        "title": "CURRENT — release report and forecast",
+        "file": "pages/current/release/page.md",
+        "children": []
+      },
+      {
+        "slug": "current-red-team",
+        "title": "CURRENT — evaluator-blind red team",
+        "file": "pages/current/red-team/page.md",
+        "children": []
+      },
+      {
         "slug": "verify",
         "title": "Historical rejected baseline — verify",
         "file": "pages/verify/page.md",

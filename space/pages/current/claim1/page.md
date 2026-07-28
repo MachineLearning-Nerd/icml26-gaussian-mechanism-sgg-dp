@@ -101,7 +101,7 @@ Download the [complete raw JSON](../../../artifacts/claim1/raw_output.json) and
 [finite-\(T\) checker](../../../repro/src/check_asymptotic_finite_t.py),
 [cumulative entrypoint](../../../repro/src/verify.py), the
 [claim contract](../../../artifacts/claim1/claim_contract.json), and the exact
-lockfile are included in this candidate.
+[uv.lock](../../../uv.lock) are included in this candidate.
 
 ## Limitations
 

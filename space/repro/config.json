@@ -1,5 +1,5 @@
 {
-  "campaign": "evaluator-visible-claims-3-to-5-milestone",
+  "campaign": "release-candidate-and-evaluator-red-team",
   "paper": "2606.08681",
   "seed": 20260728,
   "compute_plan": {
@@ -11,5 +11,6 @@
   "claims": ["C0", "C1", "C2", "C3", "C4", "C5"],
   "proofs": ["haar_symmetrization", "gaussian_asymptotic_optimality"],
   "composition": "algorithm7",
-  "accepted_claim_checkers": true
+  "accepted_claim_checkers": true,
+  "release_audit": true
 }

@@ -36,6 +36,12 @@ An open experiment logbook, published with [Trackio](https://github.com/gradio-a
 - [Claim 6: Algorithm 7 tight SGG composition](#/current-claim6)
   — the complete Figure 3 regime, 72-case SGG sweep, adaptive-CDF and direct
   convolution checks, calibrated truncation, controls, code, and raw data.
+- [Evaluator visibility matrix](#/current-visibility) — every discoverability
+  gate in one table.
+- [Release report and score forecast](#/current-release) — claim-by-claim
+  confidence and the exact proposed publication action.
+- [Evaluator-blind red-team review](#/current-red-team) — files opened, gaps
+  found, fixes, and the repeated mechanical audit.
 - **Historical rejected baseline:** [old six-claim verifier](#/verify). It is
   preserved unchanged; current evidence above supersedes its weak verifiers.
 

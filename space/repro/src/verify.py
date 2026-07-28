@@ -37,6 +37,7 @@ from check_accepted_claims import run_accepted_claim_checkers
 from check_composition import run_composition_checker
 from proof_haar import verify_haar_certificate
 from proof_gaussian_optimality import verify_theorem_certificate
+from release_audit import run_release_audit
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -324,6 +325,17 @@ def main() -> int:
                 finite_t["passed"],
                 finite_t,
                 "This dimension/radial-law sweep is scoped corroboration and is not presented as proof of the minimax theorem.",
+            )
+        )
+    if CONFIG.get("release_audit"):
+        release = run_release_audit()
+        results.append(
+            claim(
+                "RELEASE-AUDIT",
+                "Evaluator-visible evidence, preservation, and publication gates",
+                release["passed"],
+                release,
+                "This audit establishes artifact visibility and preservation; scientific claims are evaluated by their dedicated verifiers.",
             )
         )
     runtime = time.perf_counter() - started

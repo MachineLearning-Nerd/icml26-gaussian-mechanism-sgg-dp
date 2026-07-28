@@ -36,11 +36,20 @@ uv run --frozen python repro/src/verify.py
 
 Formal run `9c41004b-5557-456c-85f4-c18da9b20634`, Git SHA
 `3a38e9ec8587c59f15192c21428de092059b781f`, seed `20260728`, Hugging Face
-`cpu-upgrade`, 64 CPUs visible, 8 workers, 15.488085 s cumulative runtime.
+`cpu-upgrade`, estimated 8 cores and 1,200 s, 64 CPUs actually visible,
+8 workers, and 15.488085 s cumulative verifier runtime. The pinned environment
+is Python 3.12.11, NumPy 2.5.1, SciPy 1.18.0, and SymPy 1.14.0 from
+`uv.lock`.
 
 [Executable checker](../../../repro/src/check_accepted_claims.py),
 [raw JSON](../../../artifacts/claim5/raw_output.json),
 [Table 2 CSV](../../../artifacts/claim5/table2.csv),
 [control output](../../../artifacts/claim5/control_output.json), and
-[contract](../../../artifacts/claim5/claim_contract.json) are directly
+[claim contract](../../../artifacts/claim5/claim_contract.json) are directly
 downloadable.
+
+## Limitations and deviations
+
+Table 2 prints six decimal places. The checker therefore reports the observed
+sub-`1e-6` boundary slacks and applies the independently declared publication-
+rounding tolerance rather than silently rounding them away.

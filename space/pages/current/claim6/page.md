@@ -114,7 +114,7 @@ The [Algorithm 7 source](../../../repro/src/algorithm7.py),
 [independent checker](../../../repro/src/check_composition.py),
 [cumulative entrypoint](../../../repro/src/verify.py), and
 [claim contract](../../../artifacts/claim6/claim_contract.json) are directly
-downloadable with the exact lockfile and failure behavior.
+downloadable with the exact [uv.lock](../../../uv.lock) and failure behavior.
 
 ## Limitations
 
