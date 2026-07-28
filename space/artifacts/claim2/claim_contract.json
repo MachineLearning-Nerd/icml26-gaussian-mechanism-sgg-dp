@@ -1,0 +1,21 @@
+{
+  "claim_id": "C1",
+  "paper_anchor": "Lemma 3.3, S3.Thmlemma3; proof A2.6",
+  "source_url": "https://ar5iv.labs.arxiv.org/html/2606.08681#S3.Thmlemma3",
+  "quantifiers": {
+    "dimension": "every integer T >= 2",
+    "epsilon": "every epsilon >= 0",
+    "sensitivity": "every s > 0",
+    "noise": "every R^T-valued random vector X with finite second moment",
+    "shift": "supremum over every v with ||v||_2 <= s"
+  },
+  "assumptions": [
+    "M is Haar-uniform on O(T)",
+    "M is independent of X"
+  ],
+  "contract": "X'=MX is spherically symmetric, E||X'||^2=E||X||^2, and the worst-direction hockey-stick divergence of X' is no greater than that of X.",
+  "verifier": "repro/src/proof_haar.py::verify_haar_certificate",
+  "failure_behavior": "The fixed cumulative verifier exits nonzero unless every proof obligation passes and every negative control is rejected.",
+  "intended_verdict": "VERIFIED"
+}
+

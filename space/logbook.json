@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "title": "Gaussian Mechanism Optimality & SGG (82Wosp2Iu1)",
+  "emoji": "🎯",
+  "space_id": "DineshAI/82Wosp2Iu1",
+  "paper": null,
+  "tags": [
+    "icml2026-repro",
+    "paper-82Wosp2Iu1"
+  ],
+  "updated_at": "2026-07-28T06:40:42+00:00",
+  "root": {
+    "slug": "index",
+    "title": "Gaussian Mechanism Optimality & SGG (82Wosp2Iu1)",
+    "file": "pages/index.md",
+    "children": [
+      {
+        "slug": "current-claim2",
+        "title": "CURRENT — Claim 2 Haar proof",
+        "file": "pages/current/claim2/page.md",
+        "children": []
+      },
+      {
+        "slug": "verify",
+        "title": "Historical rejected baseline — verify",
+        "file": "pages/verify/page.md",
+        "children": []
+      },
+      {
+        "slug": "overview",
+        "title": "Historical rejected baseline — overview",
+        "file": "pages/overview/page.md",
+        "children": []
+      }
+    ]
+  },
+  "agent_view_tokens": 473,
+  "revision": "1785220842410578379"
+}

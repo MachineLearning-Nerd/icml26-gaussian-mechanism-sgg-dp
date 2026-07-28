@@ -1,0 +1,19 @@
+# Protected judged Hugging Face Space snapshot
+# space_id: DineshAI/82Wosp2Iu1
+# revision: 2d5f672ab576722614a3c86d48550e74fee2aca4
+# retrieved_utc_date: 2026-07-28
+# Snapshot directory is immutable historical evidence. Paths are relative to that directory.
+11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361  ./.gitattributes
+34c51dea244a77fae8e5d7efbcbd1b23d205dda0915cf5125d12fc6a5f663928  ./README.md
+d1c28fc0a4e07f2688d013f576cf76ffc422d278d56a52a82989e0b93b3b3964  ./bucket-icon.svg
+2ca63c77c6a01d3122ca0664cead73b1c2f76faadedb8a758eaf5f3dcbecfdcf  ./index.html
+64e1de4358c79ec0d5f2697c56f98258c025e992c94ad7b3b7801739222ca41d  ./logbook.css
+69d73869184f936613668569980f31984be65229e77c4df4ba9604d3de70c02b  ./logbook.js
+6d1ad5bfea9b42a252629c25f48e0cee1ae930cda4e723846e514c5f7c4be9ed  ./logbook.json
+6378c8162aba8f10db4562138cb83ceb7e4d674916241f7c61a1cc95983753e7  ./pages/index.md
+504189ca22474c6ebe0f7deb797bed24a3f33dc05dab3091cc189a45ceaec179  ./pages/overview/page.md
+98ebcfbc01c02d60defe58731f6b50067f7bc4d0e922736e3b81483c031b85a0  ./pages/verify/page.md
+789bfd541c9f06658ac410d968e9c39fa8c63a48a08643b36071b984c699a9f4  ./style.css
+a6eb72253c0128ce79b526a86b7943eed37beec186b5f57ff6c1701d0e9ff596  ./trackio-logo-light.png
+3e3792061d4d095759da30d7cfe7f14b621901793cd4d677b61b2896f5bf472b  ./trackio-logo.png
+71da94795855710d214801eb9b9b7b8898e9a8757abac0e22966a0531bbb2f4f  ./trackio-wordmark-dark.png
