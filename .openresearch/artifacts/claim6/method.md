@@ -12,9 +12,10 @@ The verifier implements Algorithm 7 directly:
 
 The exact Figure 3 regime is calibrated by independent root searches, not by
 using formula-derived sample counts. The broader sweep covers six SGG shapes,
-three scales, and four composition counts. Coarse/fine convergence is checked
-for all 72 cases. An independent adaptive radial integral checks the l2 CDF at
-45 points, and direct polynomial convolution checks the FFT result.
+three common dimensionless sensitivities `beta^(1/p)*s`, and four composition
+counts. Coarse/fine convergence is checked for all 72 cases. An independent
+160-node quadrature is compared with an adaptive radial integral at 45 l2 CDF
+points, and direct polynomial convolution checks the FFT result.
 
 Controls deliberately use circular FFT without zero-padding, omit Gamma
 normalization, and reverse the privacy-loss sign. Each must be rejected.

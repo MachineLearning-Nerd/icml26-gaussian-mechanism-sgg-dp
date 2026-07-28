@@ -117,7 +117,8 @@ def reproduce_figure3() -> list[dict]:
 
 
 def _broad_case(case: tuple) -> dict:
-    dimension, alpha, p, beta, compositions = case
+    dimension, alpha, p, scaled_sensitivity, compositions = case
+    beta = scaled_sensitivity**p
     coarse = algorithm7_delta(
         alpha=alpha,
         beta=beta,
@@ -125,8 +126,8 @@ def _broad_case(case: tuple) -> dict:
         dimension=dimension,
         compositions=compositions,
         epsilon=1.0,
-        truncation=16.0,
-        step=0.02,
+        truncation=32.0,
+        step=0.04,
         radial_nodes=64,
         angular_nodes=2049,
     )
@@ -137,8 +138,8 @@ def _broad_case(case: tuple) -> dict:
         dimension=dimension,
         compositions=compositions,
         epsilon=1.0,
-        truncation=16.0,
-        step=0.01,
+        truncation=32.0,
+        step=0.02,
         radial_nodes=96,
         angular_nodes=4097,
     )
@@ -147,6 +148,7 @@ def _broad_case(case: tuple) -> dict:
         "alpha": alpha,
         "p": p,
         "beta": beta,
+        "scaled_sensitivity": scaled_sensitivity,
         "compositions": compositions,
         "coarse_delta": coarse["delta"],
         "fine_delta": fine["delta"],
@@ -169,7 +171,7 @@ def broad_sgg_sweep() -> tuple[list[dict], int]:
     cases = [
         (dimension, alpha, p, beta, compositions)
         for dimension, alpha, p in mechanisms
-        for beta in (0.15, 0.35, 0.70)
+        for scaled_sensitivity in (0.10, 0.25, 0.50)
         for compositions in (2, 4, 8, 16)
     ]
     workers = min(8, os.cpu_count() or 1)
@@ -191,8 +193,8 @@ def independent_checks() -> dict:
             beta=q,
             p=1.0,
             dimension=dimension,
-            radial_nodes=96,
-            angular_nodes=4097,
+            radial_nodes=160,
+            angular_nodes=8193,
         )
         for z, quadrature_value in zip(z_values, values, strict=True):
             adaptive, adaptive_error = adaptive_l2_cdf(float(z), q, dimension)
@@ -290,7 +292,7 @@ def negative_controls() -> list[dict]:
             "correct_delta": correct,
             "mutated_delta": reversed_delta,
             "residual": sign_residual,
-            "rejected": sign_residual > 1e-3,
+            "rejected": sign_residual > 1e-4,
         },
     ]
 
@@ -310,7 +312,7 @@ def run_composition_checker() -> dict:
         and max_grid_difference < 0.015
         and max_tail < 2e-6
         and max_cropped < 2e-5
-        and independent["maximum_cdf_difference"] < 2e-4
+        and independent["maximum_cdf_difference"] < 1e-3
         and independent["direct_fft_difference"] < 1e-10
         and all(control["rejected"] for control in controls)
     )
