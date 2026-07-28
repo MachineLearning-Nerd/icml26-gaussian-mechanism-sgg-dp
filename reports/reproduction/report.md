@@ -110,9 +110,18 @@ filled gaps.
 ## Compute and provenance
 
 Short one-thread checks ran locally. Uncertain or parallel work ran only on
-Hugging Face `cpu-upgrade`; successful full-suite runs saw 64 CPUs and used
-eight worker processes. The final scientific suite took 15.49 s of verifier
-runtime (47 s job duration including setup). No GPU was used.
+Hugging Face `cpu-upgrade`; the flavor allocates 8 vCPUs, while the container
+reported 64 visible logical CPUs, and the verifier used eight worker processes
+with one native thread each. Candidate commit
+`07d4bb32c1ee667e01a3180b170a952299a42000` passed 15/15 checks in 21.67 s
+of verifier runtime (53 s job duration including setup). No GPU was used.
+
+Through this candidate gate, formal HF jobs consumed 376 s of reported wall
+time across ten jobs, including failed calibration and environment runs.
+Rounded up per job at the published `cpu-upgrade` price of $0.0005/min, that is
+an upper estimate of $0.0050. Local formal runs consumed 135 s of reported wall
+time and incurred no metered HF cost. The final hash-locked rerun is reported
+separately in the release artifact.
 
 Important lineage:
 
@@ -121,6 +130,7 @@ Important lineage:
 - [Theorem 3.1 certificate and calibration](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/theorem-3-1-proof-and-finite-t-calibration)
 - [Algorithm 7 accountant](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/algorithm-7-exact-composition-accountant)
 - [independent Claims 3–5 regressions](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/independent-regressions-for-claims-3-to-5)
+- [material command ledger](command-log.md)
 
 The Hugging Face release is only a candidate until the live judge evaluates
 its exact revision; this report does not claim that the score has changed.

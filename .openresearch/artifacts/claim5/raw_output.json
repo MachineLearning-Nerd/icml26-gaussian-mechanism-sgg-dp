@@ -1,0 +1,120 @@
+{
+  "paper": "2606.08681",
+  "campaign": "independent-regressions-claims-3-to-5",
+  "git_sha": "3a38e9ec8587c59f15192c21428de092059b781f",
+  "seed": 20260728,
+  "environment": {
+    "python": "3.12.12",
+    "platform": "Linux-6.12.90-120.164.amzn2023.x86_64-x86_64-with-glibc2.36",
+    "cpu_count_visible": 64,
+    "cpu_threads_effective": 1,
+    "numpy": "2.5.1"
+  },
+  "compute_plan": {
+    "backend": "hf",
+    "flavor": "cpu-upgrade",
+    "estimated_cores": 8,
+    "estimated_runtime_seconds": 1200
+  },
+  "runtime_seconds": 15.488084773998708,
+  "run_id": "9c41004b-5557-456c-85f4-c18da9b20634",
+  "claim": {
+    "id": "C4-INDEPENDENT",
+    "anchor": "Table 2 / Section 3 and Proposition 3.1",
+    "status": "PASS",
+    "evidence": {
+      "status": "VERIFIED",
+      "rows": [
+        {
+          "epsilon": 0.25,
+          "delta_star": 0.73667,
+          "u0": 0.1758530328653588,
+          "analytic_tangent_slope": -1.4974416001259545,
+          "minimum_tangent_slack": 0,
+          "minimum_slope_increment": 0,
+          "tangent_dominance": true,
+          "convex_tail": true
+        },
+        {
+          "epsilon": 0.5,
+          "delta_star": 0.70697,
+          "u0": 0.17435351771114274,
+          "analytic_tangent_slope": -1.6806680948879547,
+          "minimum_tangent_slack": -3.9444858557224904e-07,
+          "minimum_slope_increment": 0,
+          "tangent_dominance": true,
+          "convex_tail": true
+        },
+        {
+          "epsilon": 1,
+          "delta_star": 0.649185,
+          "u0": 0.16878926941872574,
+          "analytic_tangent_slope": -2.078419293355624,
+          "minimum_tangent_slack": 0,
+          "minimum_slope_increment": 0,
+          "tangent_dominance": true,
+          "convex_tail": true
+        },
+        {
+          "epsilon": 2,
+          "delta_star": 0.549133,
+          "u0": 0.1514991228268617,
+          "analytic_tangent_slope": -2.9760351292862377,
+          "minimum_tangent_slack": 0,
+          "minimum_slope_increment": 0,
+          "tangent_dominance": true,
+          "convex_tail": true
+        },
+        {
+          "epsilon": 4,
+          "delta_star": 0.416972,
+          "u0": 0.11564327912801145,
+          "analytic_tangent_slope": -5.041609426650677,
+          "minimum_tangent_slack": -2.461805277409468e-07,
+          "minimum_slope_increment": -3e-323,
+          "tangent_dominance": true,
+          "convex_tail": true
+        },
+        {
+          "epsilon": 8,
+          "delta_star": 0.29217,
+          "u0": 0.07259321767686538,
+          "analytic_tangent_slope": -9.750641183120514,
+          "minimum_tangent_slack": -4.178951782396467e-07,
+          "minimum_slope_increment": -7.707e-321,
+          "tangent_dominance": true,
+          "convex_tail": true
+        },
+        {
+          "epsilon": 16,
+          "delta_star": 0.197615,
+          "u0": 0.03955363315735349,
+          "analytic_tangent_slope": -20.28597749697904,
+          "minimum_tangent_slack": 0,
+          "minimum_slope_increment": -1.0522549e-316,
+          "tangent_dominance": true,
+          "convex_tail": true
+        }
+      ],
+      "negative_controls": [
+        {
+          "id": "NC_C5_extend_threshold_to_delta_0.9",
+          "mutated_row": {
+            "epsilon": 1,
+            "delta_star": 0.9,
+            "u0": 0.07191646824487513,
+            "analytic_tangent_slope": -2.892737901160772,
+            "minimum_tangent_slack": -0.10803549340954666,
+            "minimum_slope_increment": -0.0007810622667761002,
+            "tangent_dominance": false,
+            "convex_tail": false
+          },
+          "rejected": true
+        }
+      ],
+      "passed": true
+    },
+    "limitation": "Independent current regression for previously full-credit evidence; historical judged values remain preserved and reachable."
+  },
+  "all_passed": true
+}

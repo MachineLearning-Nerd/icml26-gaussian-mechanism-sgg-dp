@@ -1,0 +1,199 @@
+{
+  "paper": "2606.08681",
+  "campaign": "independent-regressions-claims-3-to-5",
+  "git_sha": "3a38e9ec8587c59f15192c21428de092059b781f",
+  "seed": 20260728,
+  "environment": {
+    "python": "3.12.12",
+    "platform": "Linux-6.12.90-120.164.amzn2023.x86_64-x86_64-with-glibc2.36",
+    "cpu_count_visible": 64,
+    "cpu_threads_effective": 1,
+    "numpy": "2.5.1"
+  },
+  "compute_plan": {
+    "backend": "hf",
+    "flavor": "cpu-upgrade",
+    "estimated_cores": 8,
+    "estimated_runtime_seconds": 1200
+  },
+  "runtime_seconds": 15.488084773998708,
+  "run_id": "9c41004b-5557-456c-85f4-c18da9b20634",
+  "claim": {
+    "id": "C3-INDEPENDENT",
+    "anchor": "Figure 2 / Section 4.3",
+    "status": "PASS",
+    "evidence": {
+      "status": "VERIFIED",
+      "epsilon": 0.1,
+      "delta": 0.1,
+      "rows": [
+        {
+          "dimension": 2,
+          "alpha": 1,
+          "p": 4,
+          "replicate_count": 8,
+          "qmc_points_per_replicate": 32768,
+          "mean_reduction": 0.14868698601986363,
+          "reduction_95_half_width": 1.715021154807643e-05,
+          "replicates": [
+            {
+              "beta": 0.0016715425364912948,
+              "sgg_mse": 13.79959521161945,
+              "reduction": 0.14869639708712853
+            },
+            {
+              "beta": 0.0016715048039345692,
+              "sgg_mse": 13.79975096680166,
+              "reduction": 0.1486867884757341
+            },
+            {
+              "beta": 0.0016715154466659266,
+              "sgg_mse": 13.799707034429868,
+              "reduction": 0.1486894986846799
+            },
+            {
+              "beta": 0.0016714292584105955,
+              "sgg_mse": 13.800062824941225,
+              "reduction": 0.14866754979853106
+            },
+            {
+              "beta": 0.0016714681941057997,
+              "sgg_mse": 13.799902092547102,
+              "reduction": 0.14867746545649954
+            },
+            {
+              "beta": 0.0016716426270942208,
+              "sgg_mse": 13.79918207592337,
+              "reduction": 0.14872188362504285
+            },
+            {
+              "beta": 0.001671382756124708,
+              "sgg_mse": 13.800254800717203,
+              "reduction": 0.14865570672145118
+            },
+            {
+              "beta": 0.0016715590348931138,
+              "sgg_mse": 13.799527109977875,
+              "reduction": 0.14870059830984172
+            }
+          ]
+        },
+        {
+          "dimension": 3,
+          "alpha": 2,
+          "p": 4.5,
+          "replicate_count": 8,
+          "qmc_points_per_replicate": 32768,
+          "mean_reduction": 0.11977659440268923,
+          "reduction_95_half_width": 1.5840012563268748e-05,
+          "replicates": [
+            {
+              "beta": 0.0004539415647234311,
+              "sgg_mse": 21.402051059699563,
+              "reduction": 0.11979818260628954
+            },
+            {
+              "beta": 0.000453887850468776,
+              "sgg_mse": 21.403176699907657,
+              "reduction": 0.11975188841915146
+            },
+            {
+              "beta": 0.00045394067864438587,
+              "sgg_mse": 21.402069626882053,
+              "reduction": 0.11979741899406723
+            },
+            {
+              "beta": 0.00045390051958354923,
+              "sgg_mse": 21.402911187588142,
+              "reduction": 0.1197628081401411
+            },
+            {
+              "beta": 0.0004539427081509796,
+              "sgg_mse": 21.402027100031955,
+              "reduction": 0.1197991679951625
+            },
+            {
+              "beta": 0.00045390700491504323,
+              "sgg_mse": 21.402775275730143,
+              "reduction": 0.11976839778498788
+            },
+            {
+              "beta": 0.00045389914551110014,
+              "sgg_mse": 21.402939984123087,
+              "reduction": 0.11976162382550123
+            },
+            {
+              "beta": 0.0004539126550131866,
+              "sgg_mse": 21.402656869984845,
+              "reduction": 0.11977326745621283
+            }
+          ]
+        },
+        {
+          "dimension": 5,
+          "alpha": 3.5,
+          "p": 6,
+          "replicate_count": 8,
+          "qmc_points_per_replicate": 32768,
+          "mean_reduction": 0.10022803279117307,
+          "reduction_95_half_width": 3.8570696006275425e-05,
+          "replicates": [
+            {
+              "beta": 9.863093305588228e-06,
+              "sgg_mse": 36.46477095744567,
+              "reduction": 0.1001883629360997
+            },
+            {
+              "beta": 9.862394412081667e-06,
+              "sgg_mse": 36.46563228951189,
+              "reduction": 0.10016710854189383
+            },
+            {
+              "beta": 9.864280061158953e-06,
+              "sgg_mse": 36.463308559603625,
+              "reduction": 0.10022444934393226
+            },
+            {
+              "beta": 9.865527734783592e-06,
+              "sgg_mse": 36.461771347485744,
+              "reduction": 0.1002623818830923
+            },
+            {
+              "beta": 9.865031568304526e-06,
+              "sgg_mse": 36.46238262464497,
+              "reduction": 0.10024729789142314
+            },
+            {
+              "beta": 9.862747149100406e-06,
+              "sgg_mse": 36.46519755830997,
+              "reduction": 0.10017783605187708
+            },
+            {
+              "beta": 9.866548387564688e-06,
+              "sgg_mse": 36.46051403202008,
+              "reduction": 0.10029340763912369
+            },
+            {
+              "beta": 9.865561818978402e-06,
+              "sgg_mse": 36.46172935725846,
+              "reduction": 0.10026341804194257
+            }
+          ]
+        }
+      ],
+      "negative_controls": [
+        {
+          "id": "NC_C4_replace_nongaussian_shape_by_gaussian",
+          "p": 2,
+          "alpha_rule": "alpha=T-1",
+          "exact_mse_reduction": 0,
+          "rejected": true
+        }
+      ],
+      "passed": true,
+      "limitation": "Independent scrambled-Sobol calibration corroborates the judged historical 15.0%,12.6%,10.5% result; it is not expected to match the unpublished optimizer and Monte Carlo coordinates exactly."
+    },
+    "limitation": "Independent current regression for previously full-credit evidence; historical judged values remain preserved and reachable."
+  },
+  "all_passed": true
+}

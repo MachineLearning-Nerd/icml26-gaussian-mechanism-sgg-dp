@@ -1,0 +1,26 @@
+{
+  "controls": [
+    {
+      "id": "NC1_nonorthogonal",
+      "mutation": "replace orthogonal M by diag(2,1)",
+      "expected": "reject MSE preservation",
+      "residual": 3.0,
+      "rejected": true
+    },
+    {
+      "id": "NC2_nonhaar",
+      "mutation": "replace Haar M by deterministic identity",
+      "expected": "reject spherical invariance",
+      "residual": 1.4142135623730951,
+      "rejected": true
+    },
+    {
+      "id": "NC3_mean_direction",
+      "mutation": "replace worst-direction supremum by direction average",
+      "expected": "reject privacy bound for anisotropic Gaussian",
+      "residual": 0.4999995295898901,
+      "rejected": true
+    }
+  ],
+  "all_rejected": true
+}

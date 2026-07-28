@@ -1,0 +1,23 @@
+{
+  "git_sha": "3c4970bd873cb9440d24713d14e4818fed78976f",
+  "controls": [
+    {
+      "id": "NC1_circular_fft_without_padding",
+      "residual": 0.6090187499999999,
+      "rejected": true
+    },
+    {
+      "id": "NC2_unnormalized_radial_quadrature",
+      "residual": 362879,
+      "rejected": true
+    },
+    {
+      "id": "NC3_reverse_privacy_loss_sign",
+      "correct_delta": 0.0005693988552052862,
+      "mutated_delta": 0.00017543678613600398,
+      "residual": 0.0003939620690692822,
+      "rejected": true
+    }
+  ],
+  "all_rejected": true
+}

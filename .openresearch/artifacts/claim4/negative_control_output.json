@@ -1,0 +1,13 @@
+{
+  "git_sha": "3a38e9ec8587c59f15192c21428de092059b781f",
+  "controls": [
+    {
+      "id": "NC_C4_replace_nongaussian_shape_by_gaussian",
+      "p": 2,
+      "alpha_rule": "alpha=T-1",
+      "exact_mse_reduction": 0,
+      "rejected": true
+    }
+  ],
+  "all_rejected": true
+}

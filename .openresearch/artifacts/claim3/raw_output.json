@@ -1,0 +1,86 @@
+{
+  "paper": "2606.08681",
+  "campaign": "independent-regressions-claims-3-to-5",
+  "git_sha": "3a38e9ec8587c59f15192c21428de092059b781f",
+  "seed": 20260728,
+  "environment": {
+    "python": "3.12.12",
+    "platform": "Linux-6.12.90-120.164.amzn2023.x86_64-x86_64-with-glibc2.36",
+    "cpu_count_visible": 64,
+    "cpu_threads_effective": 1,
+    "numpy": "2.5.1"
+  },
+  "compute_plan": {
+    "backend": "hf",
+    "flavor": "cpu-upgrade",
+    "estimated_cores": 8,
+    "estimated_runtime_seconds": 1200
+  },
+  "runtime_seconds": 15.488084773998708,
+  "run_id": "9c41004b-5557-456c-85f4-c18da9b20634",
+  "claim": {
+    "id": "C2-INDEPENDENT",
+    "anchor": "Definitions 4.1-4.2 and Proposition 4.1",
+    "status": "PASS",
+    "evidence": {
+      "status": "VERIFIED",
+      "normalization_rows": [
+        {
+          "alpha": 0.5,
+          "beta": 1.3,
+          "p": 1.7,
+          "integral": 1.0000000000000009,
+          "quad_error": 2.7755575615628914e-15,
+          "absolute_normalization_error": 8.881784197001252e-16
+        },
+        {
+          "alpha": 2,
+          "beta": 0.7,
+          "p": 0.9,
+          "integral": 1.0000000000000036,
+          "quad_error": 9.734620380064427e-13,
+          "absolute_normalization_error": 3.552713678800501e-15
+        },
+        {
+          "alpha": 3.1,
+          "beta": 2,
+          "p": 2.5,
+          "integral": 1.0000000000000007,
+          "quad_error": 9.249010010631262e-13,
+          "absolute_normalization_error": 6.661338147750939e-16
+        },
+        {
+          "alpha": 9,
+          "beta": 0.25,
+          "p": 1,
+          "integral": 1,
+          "quad_error": 2.774324943465426e-13,
+          "absolute_normalization_error": 0
+        },
+        {
+          "alpha": 4,
+          "beta": 0.5,
+          "p": 2,
+          "integral": 1,
+          "quad_error": 9.844353861360337e-13,
+          "absolute_normalization_error": 0
+        }
+      ],
+      "gaussian_mse": 6,
+      "gaussian_expected": 6,
+      "ell2_mse": 9.799999999999997,
+      "ell2_expected": 9.799999999999999,
+      "negative_controls": [
+        {
+          "id": "NC_C3_omit_factor_p",
+          "mutated_integral_at_p2": 0.5,
+          "residual": 0.5,
+          "rejected": true
+        }
+      ],
+      "passed": true
+    },
+    "limitation": "Independent current regression for previously full-credit evidence; historical judged values remain preserved and reachable."
+  },
+  "all_passed": true
+}

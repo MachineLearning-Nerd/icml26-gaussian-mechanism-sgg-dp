@@ -43,3 +43,7 @@ The repeated review has no missing visibility-matrix cells. Historical
 `verify` and `overview` pages remain labeled **Historical rejected baseline**;
 the six current pages precede them in navigation and state which verifier
 supersedes the old one.
+
+Formal HF run `ad8cc069-72cf-403f-94fb-f5a1bcaa006e` independently executed
+the same audit from commit `07d4bb32c1ee667e01a3180b170a952299a42000`:
+15/15 cumulative checks passed, including the release audit.

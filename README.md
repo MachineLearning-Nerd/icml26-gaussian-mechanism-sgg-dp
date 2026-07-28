@@ -68,7 +68,7 @@ uv run marimo run notebooks/gaussian_sgg_reproduction.py
 | [`orx/theorem-3-1-proof-and-finite-t-calibration`](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/theorem-3-1-proof-and-finite-t-calibration) | Universal theorem derivation plus asymptotic calibration | `uv run --frozen python repro/src/verify.py` | 10/10 passed; 256 finite-\(T\) cases | local, 1 thread |
 | [`orx/algorithm-7-exact-composition-accountant`](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/algorithm-7-exact-composition-accountant) | Exact Algorithm 7 and Figure 3 | `uv run --frozen python repro/src/verify.py` | 11/11 passed; 72-case sweep | HF `cpu-upgrade`, 8 workers |
 | [`orx/independent-regressions-for-claims-3-to-5`](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/independent-regressions-for-claims-3-to-5) | Independent QMC, quadrature, and derivative checks | `uv run --frozen python repro/src/verify.py` | 14/14 passed | HF `cpu-upgrade`, 8 workers |
-| [`orx/release-candidate-and-evaluator-red-team`](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/release-candidate-and-evaluator-red-team) | Final visibility, reports, and release audit | `uv run --frozen python repro/src/verify.py` | Pending final release-gate run | HF `cpu-upgrade`, 8 workers |
+| [`orx/release-candidate-and-evaluator-red-team`](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/release-candidate-and-evaluator-red-team) | Final visibility, reports, and release audit | `uv run --frozen python repro/src/verify.py` | 15/15 passed at `07d4bb3`; final hash-locked rerun follows the release-record update | HF `cpu-upgrade`, 8 vCPU allocation, 8 workers |
 
 ## Source provenance
 
@@ -78,3 +78,4 @@ uv run marimo run notebooks/gaussian_sgg_reproduction.py
   `DineshAI/82Wosp2Iu1@2d5f672ab576722614a3c86d48550e74fee2aca4`.
 - Original validated baseline SHA:
   `55660297e858b03ca0dea5c0ed91d616ece44add`.
+- [Material command ledger](reports/reproduction/command-log.md).
