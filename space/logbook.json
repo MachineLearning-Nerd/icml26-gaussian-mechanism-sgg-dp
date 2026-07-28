@@ -27,6 +27,12 @@
         "children": []
       },
       {
+        "slug": "current-claim6",
+        "title": "CURRENT — Claim 6 Algorithm 7",
+        "file": "pages/current/claim6/page.md",
+        "children": []
+      },
+      {
         "slug": "verify",
         "title": "Historical rejected baseline — verify",
         "file": "pages/verify/page.md",

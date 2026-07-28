@@ -33,6 +33,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 import core
 from check_haar_independent import run_independent_checker
 from check_asymptotic_finite_t import run_finite_t_checker
+from check_composition import run_composition_checker
 from proof_haar import verify_haar_certificate
 from proof_gaussian_optimality import verify_theorem_certificate
 
@@ -284,6 +285,17 @@ def main() -> int:
                 theorem["passed"],
                 theorem,
                 "The universal verdict comes from the symbolic derivation; finite-T calibration is reported separately.",
+            )
+        )
+    if CONFIG.get("composition") == "algorithm7":
+        composition = run_composition_checker()
+        results.append(
+            claim(
+                "C5-ALGORITHM7",
+                "Lemma D.1, Algorithm 7 / alg7, and Figure 3",
+                composition["passed"],
+                composition,
+                "Exact paper regime plus broad SGG validation; unpublished Figure 3 coordinates and numerical settings prevent coordinate-for-coordinate comparison.",
             )
         )
         finite_t = run_finite_t_checker()

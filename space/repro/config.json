@@ -1,13 +1,14 @@
 {
-  "campaign": "evaluator-visible-claim-1-milestone",
+  "campaign": "evaluator-visible-claim-6-milestone",
   "paper": "2606.08681",
   "seed": 20260728,
   "compute_plan": {
-    "backend": "local",
-    "flavor": "local-single-core",
-    "estimated_cores": 1,
-    "estimated_runtime_seconds": 10
+    "backend": "hf",
+    "flavor": "cpu-upgrade",
+    "estimated_cores": 8,
+    "estimated_runtime_seconds": 1200
   },
   "claims": ["C0", "C1", "C2", "C3", "C4", "C5"],
-  "proofs": ["haar_symmetrization", "gaussian_asymptotic_optimality"]
+  "proofs": ["haar_symmetrization", "gaussian_asymptotic_optimality"],
+  "composition": "algorithm7"
 }
