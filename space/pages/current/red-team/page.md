@@ -44,6 +44,7 @@ The repeated review has no missing visibility-matrix cells. Historical
 the six current pages precede them in navigation and state which verifier
 supersedes the old one.
 
-Formal HF run `ad8cc069-72cf-403f-94fb-f5a1bcaa006e` independently executed
-the same audit from commit `07d4bb32c1ee667e01a3180b170a952299a42000`:
-15/15 cumulative checks passed, including the release audit.
+Formal HF run `d06e3203-e897-4da2-b8e8-8b81bd960475` independently executed
+the same audit from hash-locked evidence commit
+`ef4cb61d7584835c1836b3b924a4bfd9eff703bd`: 15/15 cumulative checks passed,
+including the release audit.

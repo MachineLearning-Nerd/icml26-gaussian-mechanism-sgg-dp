@@ -112,16 +112,15 @@ filled gaps.
 Short one-thread checks ran locally. Uncertain or parallel work ran only on
 Hugging Face `cpu-upgrade`; the flavor allocates 8 vCPUs, while the container
 reported 64 visible logical CPUs, and the verifier used eight worker processes
-with one native thread each. Candidate commit
-`07d4bb32c1ee667e01a3180b170a952299a42000` passed 15/15 checks in 21.67 s
+with one native thread each. Hash-locked evidence commit
+`ef4cb61d7584835c1836b3b924a4bfd9eff703bd` passed 15/15 checks in 20.13 s
 of verifier runtime (53 s job duration including setup). No GPU was used.
 
-Through this candidate gate, formal HF jobs consumed 376 s of reported wall
-time across ten jobs, including failed calibration and environment runs.
+Through this hash-locked gate, formal HF jobs consumed 429 s of reported wall
+time across eleven jobs, including failed calibration and environment runs.
 Rounded up per job at the published `cpu-upgrade` price of $0.0005/min, that is
-an upper estimate of $0.0050. Local formal runs consumed 135 s of reported wall
-time and incurred no metered HF cost. The final hash-locked rerun is reported
-separately in the release artifact.
+an upper estimate of $0.0055. Local formal runs consumed 135 s of reported wall
+time and incurred no metered HF cost.
 
 Important lineage:
 
