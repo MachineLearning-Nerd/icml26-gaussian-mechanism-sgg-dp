@@ -48,7 +48,10 @@ def supporting_line_holds(
     left = np.concatenate(([0.0], np.geomspace(max(u0 * 1e-9, 1e-14), u0, 6000)))
     tangent = g0 + slope * (left - u0)
     slack = gaussian_delta(np.maximum(left, 1e-300), eps, sensitivity) - tangent
-    tangent_ok = bool(np.min(slack) >= -2e-7)
+    # Table 2 publishes delta_star to six decimals. The resulting tangent
+    # residual can move by a few 1e-7 at the rounded boundary, so the audit
+    # tolerance is 1e-6 (still orders below a substantive violation).
+    tangent_ok = bool(np.min(slack) >= -1e-6)
 
     right = np.geomspace(u0, u0 * 1e6, 6000)
     step = np.maximum(right * 2e-4, 1e-8)
@@ -182,4 +185,3 @@ def direct_composed_delta(
     estimate = float(np.mean(payoff))
     half_width = 1.96 * float(np.std(payoff, ddof=1)) / math.sqrt(size)
     return estimate, half_width
-
