@@ -124,12 +124,20 @@ time and incurred no metered HF cost.
 
 Important lineage:
 
-- [locked baseline](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/locked-9-12-reproduction-baseline)
-- [Haar proof certificate](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/haar-lemma-symbolic-proof-certificate)
-- [Theorem 3.1 certificate and calibration](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/theorem-3-1-proof-and-finite-t-calibration)
-- [Algorithm 7 accountant](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/algorithm-7-exact-composition-accountant)
-- [independent Claims 3–5 regressions](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/independent-regressions-for-claims-3-to-5)
+- [locked baseline](https://github.com/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/tree/historical/judged-baseline)
+- [Haar proof certificate](https://github.com/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/tree/audit/lemma33-haar-proof)
+- [Theorem 3.1 certificate and calibration](https://github.com/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/tree/audit/theorem31-finite-calibration)
+- [Algorithm 7 accountant](https://github.com/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/tree/audit/algorithm7-composition)
+- [independent Claims 3–5 regressions](https://github.com/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/tree/audit/claims3-5-independent)
 - [material command ledger](command-log.md)
 
 The Hugging Face release is only a candidate until the live judge evaluates
 its exact revision; this report does not claim that the score has changed.
+
+Post-publication execution of the first candidate exposed one packaging-only
+defect: the audit located `space/` correctly in the GitHub tree but not when
+the Space contents were downloaded at repository root. A stacked child changes
+only that root detection. Both layouts pass independently, and the complete
+formal suite passes 15/15 on the child. Space revision
+`810a2254d95b682c1316864f7c9cdb765a0b76fb` is therefore superseded and is not
+the revision submitted for judging.

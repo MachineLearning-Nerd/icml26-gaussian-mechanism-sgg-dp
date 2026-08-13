@@ -30,7 +30,7 @@ SHA. No second Space will be created.
 
 ## Winning branch, run, compute, and cost
 
-The winning branch is `orx/release-candidate-and-evaluator-red-team`.
+The winning branch is `release/evaluator-red-team`.
 Hash-locked evidence commit `ef4cb61d7584835c1836b3b924a4bfd9eff703bd`
 was tested by formal run `d06e3203-e897-4da2-b8e8-8b81bd960475` with the
 unchanged command:
@@ -52,6 +52,17 @@ default image had no `uv`. It is retained as an environment failure. The
 successful run used the pinned
 `ghcr.io/astral-sh/uv:python3.12-bookworm-slim` image and did not change code,
 configuration, or the fixed command.
+
+## Superseded first publication
+
+Space revision `810a2254d95b682c1316864f7c9cdb765a0b76fb` is a preserved,
+superseded candidate. Post-publication execution showed that
+`repro/src/release_audit.py` assumed the GitHub `space/` subdirectory layout;
+a downloaded Space places those files at repository root. The stacked
+`release/standalone-space-root` child changes only this path detection.
+Independent audits now pass from both layouts, and the inherited formal command
+passes all 15 checks on Hugging Face `cpu-upgrade`. No scientific result,
+threshold, tolerance, seed, or verdict changes.
 
 ## Experiment tree and evidence paths
 

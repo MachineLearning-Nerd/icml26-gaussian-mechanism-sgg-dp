@@ -1,81 +1,131 @@
-# Reproduction: Gaussian optimality and SGG mechanisms
+# ICML 2026 — Gaussian Mechanism and SGG Differential Privacy
 
-[![Open in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/blob/main/notebooks/gaussian_sgg_reproduction.py)
+[![Open in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/blob/main/notebooks/gaussian_sgg_reproduction.py)
 
-This repository reproduces all six judged claims from
-[arXiv:2606.08681](https://arxiv.org/abs/2606.08681),
-*Asymptotic Optimality of the High-Dimensional Gaussian Mechanism and Improved
-Low-Dimensional Mechanisms for Differential Privacy*.
+Independent claim-by-claim reproduction audit for [arXiv:2606.08681](https://arxiv.org/abs/2606.08681), *Asymptotic Optimality of the High-Dimensional Gaussian Mechanism and Improved Low-Dimensional Mechanisms for Differential Privacy*.
 
-The strongest empirical result is the paper's exact Figure 3 regime:
-`T=10`, `alpha=9`, `p=1`, total `(epsilon,delta)=(1,10^-5)`, and
-`k={2,4,8,16,32}`. Algorithm 7 reduces required per-invocation MSE by 31.4% at
-`k=2`, rising monotonically to 94.3% at `k=32`, versus sequential composition.
-Theorem 3.1 is addressed by a universal structured derivation plus a separate
-256-case finite-\(T\) calibration; the finite sweep is not presented as proof.
+The repository was renamed from `icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve` to `icml26-gaussian-mechanism-sgg-dp` so the public URL describes the paper rather than the challenge identifier.
 
-Previous live judged score: **9/12**. Conservative post-release forecast:
-**10–12/12**. A possible **12/12 is a forecast, not a judge result**.
+## What the paper does
 
-- [Illustrated reproduction report](reports/reproduction/report.md)
-- [Evidence-first marimo tutorial](notebooks/gaussian_sgg_reproduction.py)
-- [Evaluator-facing candidate logbook](space/README.md)
+The paper studies additive-noise mechanisms for differential privacy in two regimes:
 
-## Results at a glance
+1. It gives an asymptotic optimality argument for Gaussian noise as the query dimension grows under strong privacy settings.
+2. It introduces the Spherical Generalized Gamma (SGG) family, which contains the Gaussian and `l2` mechanisms, and identifies low-dimensional members that improve mean-squared error in selected settings.
+3. It gives a tight composition procedure for the SGG family, including the paper's Algorithm 7 comparison against sequential composition.
 
-| Claim | Paper result | Observed result | Assessment |
+This repository turns those contributions into executable evidence, negative controls, source-linked claim contracts, and a cumulative verifier. The report is a reproduction audit, not a claim that the paper's theorems have been formally re-proved in a proof assistant.
+
+## Claim and evidence ledger
+
+All six judged claims are currently marked `VERIFIED` by the cumulative evidence package. “Verified” here means that the stated contract is supported by the documented derivation and executable checks; the confidence and limitations below remain part of the result.
+
+| Claim | Paper anchor | Evidence path | Current assessment |
 |---|---|---|---|
-| Theorem 3.1 | Gaussian asymptotically minimax as `T→∞` | 12-step universal derivation; worst 256-case gap `2.70e-4` at `T=65536` | VERIFIED, MEDIUM confidence |
-| Lemma 3.3 | Haar preserves MSE and cannot worsen privacy | universal algebra; 56/56 exact finite-group cases | VERIFIED |
-| SGG family | normalized; contains Gaussian and `l2` | max integral error `3.55e-15`; MSE identities exact | VERIFIED |
-| Figure 2 | up to 15%, shrinking with `T` | judged 15.0/12.6/10.5%; independent 14.87/11.98/10.02% | VERIFIED |
-| Table 2 | seven threshold lower bounds | 7/7 pass analytic-derivative audit | VERIFIED |
-| Algorithm 7 | growing tight-composition advantage | 31.4% → 94.3%; 72-case sweep; direct/FFT error `7.37e-18` | VERIFIED |
+| 1 | Theorem 3.1 — asymptotic Gaussian optimality | [`proof_gaussian_optimality.py`](repro/src/proof_gaussian_optimality.py), [`check_asymptotic_finite_t.py`](repro/src/check_asymptotic_finite_t.py), [claim page](space/pages/current/claim1/page.md) | `VERIFIED`, medium confidence: universal structured derivation plus 256 finite-(T) calibrations; imported probability limit facts and the absence of a formal proof kernel remain limitations |
+| 2 | Lemma 3.3 — Haar symmetrization | [`proof_haar.py`](repro/src/proof_haar.py), [`check_haar_independent.py`](repro/src/check_haar_independent.py), [claim page](space/pages/current/claim2/page.md) | `VERIFIED`, high confidence: universal algebra, 56 exact finite-group cases, and rejected non-Haar/nonorthogonal controls |
+| 3 | Definitions 4.1–4.2 — SGG family and special cases | [`check_accepted_claims.py`](repro/src/check_accepted_claims.py), [claim page](space/pages/current/claim3/page.md) | `VERIFIED`, high confidence: normalization error at most (3.55\times10^{-15}) and exact Gaussian/(l_2) identities |
+| 4 | Figure 2 — low-dimensional SGG improvement | [`check_accepted_claims.py`](repro/src/check_accepted_claims.py), [`figure2_qmc.csv`](space/artifacts/claim4/figure2_qmc.csv), [claim page](space/pages/current/claim4/page.md) | `VERIFIED`, high confidence: judged values retained and independent replicated QMC gives 14.87%, 11.98%, and 10.02% reductions; the paper does not publish raw coordinates or optimizer settings |
+| 5 | Table 2 — supporting-line threshold bounds | [`check_accepted_claims.py`](repro/src/check_accepted_claims.py), [`table2.csv`](space/artifacts/claim5/table2.csv), [claim page](space/pages/current/claim5/page.md) | `VERIFIED`, high confidence: all seven printed thresholds pass an analytic-derivative audit with explicit rounding slack |
+| 6 | Lemma D.1 and Algorithm 7 — tight SGG composition | [`algorithm7.py`](repro/src/algorithm7.py), [`check_composition.py`](repro/src/check_composition.py), [claim page](space/pages/current/claim6/page.md) | `VERIFIED`, high confidence: complete Figure 3 regime, 72-case sweep, and direct/FFT agreement to (7.37\times10^{-18}) |
 
-Substitutions and limitations: the paper publishes neither author code nor raw
-Figure 2/3 coordinates or numerical settings. The reproduction uses a pinned
-independent implementation, reports its settings and uncertainty, and keeps
-the original judged Space revision intact. The proof certificates are
-structured Python/SymPy derivations rather than formal proof-kernel objects.
+### How each claim is produced
 
-## Reproduce
+Each claim follows the same evidence chain:
 
-All experiment nodes inherit the same exact command:
+`paper anchor → claim contract → executable derivation/checker → raw JSON/CSV → negative control → cumulative verifier → human-readable report`
+
+Run the cumulative gate with:
 
 ```bash
 uv run --frozen python repro/src/verify.py
 ```
 
-Dependencies are pinned by `pyproject.toml` and `uv.lock` in one repository
-`.venv`. Short checks used one-thread local CPU. Parallel or uncertain checks
-used Hugging Face `cpu-upgrade` (64 CPUs visible, 8 workers); no GPU was used.
+The public evidence pages under [`space/pages/current`](space/pages/current) expose the exact contract, assumptions, source anchor, command, raw result, control, and limitation for each claim. The illustrated synthesis is [`reports/reproduction/report.md`](reports/reproduction/report.md); the reproducible tutorial is [`notebooks/gaussian_sgg_reproduction.py`](notebooks/gaussian_sgg_reproduction.py).
 
-To explore the tutorial locally:
+## Results at a glance
+
+| Result | Evidence |
+|---|---|
+| Theorem 3.1 | 12-step structured derivation; worst finite-(T) calibration gap (2.697\times10^{-4}) at (T=65{,}536) |
+| Lemma 3.3 | MSE-preserving Haar algebra and 56/56 exact finite-group cases |
+| SGG family | Five adaptive integrals; maximum normalization error (3.55\times10^{-15}) |
+| Figure 2 | Judged 15.0/12.6/10.5% reductions; independent QMC 14.87/11.98/10.02% |
+| Table 2 | 7/7 analytic-derivative checks pass |
+| Algorithm 7 | 31.4% reduction at (k=2) rising to 94.3% at (k=32); 72-case sweep |
+
+The previous live judged score recorded by the evidence package is `9/12`. The `10–12/12` value in the release pages is a forecast, not a new judge result.
+
+## Reproduce locally
+
+Dependencies are pinned by [`pyproject.toml`](pyproject.toml) and [`uv.lock`](uv.lock). No GPU is required.
 
 ```bash
+uv run --frozen python repro/src/verify.py
 uv run marimo edit notebooks/gaussian_sgg_reproduction.py
-uv run marimo run notebooks/gaussian_sgg_reproduction.py
 ```
 
-## Experiment log
+Short checks use a one-thread local CPU. The larger calibration and regression jobs used Hugging Face `cpu-upgrade`; their commands, durations, and cost estimates are recorded in [`reports/reproduction/command-log.md`](reports/reproduction/command-log.md).
 
-| Branch / experiment | Purpose or change | Exact run command | Assessment / outcome | Compute |
-|---|---|---|---|---|
-| `main` | Publication surface | Not run as an experiment (publication surface) | Mirrors the validated winning candidate after release | — |
-| [`orx/locked-9-12-reproduction-baseline`](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/locked-9-12-reproduction-baseline) | Freeze judged-scope baseline | `uv run --frozen python repro/src/verify.py` | 5/6; exposed six-decimal Table 2 tolerance issue | local, 1 thread |
-| [`orx/calibrated-table-2-rounding-tolerance`](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/calibrated-table-2-rounding-tolerance) | Calibrate published threshold rounding | `uv run --frozen python repro/src/verify.py` | 6/6 passed | local, 1 thread |
-| [`orx/haar-lemma-symbolic-proof-certificate`](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/haar-lemma-symbolic-proof-certificate) | Universal Lemma 3.3 derivation | `uv run --frozen python repro/src/verify.py` | 7/7 passed; 3 controls rejected | local, 1 thread |
-| [`orx/theorem-3-1-proof-and-finite-t-calibration`](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/theorem-3-1-proof-and-finite-t-calibration) | Universal theorem derivation plus asymptotic calibration | `uv run --frozen python repro/src/verify.py` | 10/10 passed; 256 finite-\(T\) cases | local, 1 thread |
-| [`orx/algorithm-7-exact-composition-accountant`](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/algorithm-7-exact-composition-accountant) | Exact Algorithm 7 and Figure 3 | `uv run --frozen python repro/src/verify.py` | 11/11 passed; 72-case sweep | HF `cpu-upgrade`, 8 workers |
-| [`orx/independent-regressions-for-claims-3-to-5`](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/independent-regressions-for-claims-3-to-5) | Independent QMC, quadrature, and derivative checks | `uv run --frozen python repro/src/verify.py` | 14/14 passed | HF `cpu-upgrade`, 8 workers |
-| [`orx/release-candidate-and-evaluator-red-team`](https://github.com/MachineLearning-Nerd/icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve/tree/orx/release-candidate-and-evaluator-red-team) | Final visibility, reports, and release audit | `uv run --frozen python repro/src/verify.py` | 15/15 passed on hash-locked evidence commit `ef4cb61` | HF `cpu-upgrade`, 8 vCPU allocation, 8 workers |
+## Branch map
 
-## Source provenance
+The current public branch names describe their role:
 
-- Paper HTML retrieved 2026-07-28 with an explicit User-Agent; SHA-256
-  `a02952f28208ebacabb7e555436985040f909dd881786f74d71cd4aee7841a38`.
-- Protected judged Space:
-  `DineshAI/82Wosp2Iu1@2d5f672ab576722614a3c86d48550e74fee2aca4`.
-- Original validated baseline SHA:
-  `55660297e858b03ca0dea5c0ed91d616ece44add`.
-- [Material command ledger](reports/reproduction/command-log.md).
+| Branch family | Purpose |
+|---|---|
+| [`historical/judged-baseline`](https://github.com/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/tree/historical/judged-baseline) | Preserve the locked 9/12 judged-scope baseline |
+| [`audit/table2-rounding-tolerance`](https://github.com/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/tree/audit/table2-rounding-tolerance) | Calibrate six-decimal Table 2 publication rounding |
+| [`audit/lemma33-haar-proof`](https://github.com/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/tree/audit/lemma33-haar-proof) | Reconstruct and test the universal Haar argument |
+| [`audit/theorem31-finite-calibration`](https://github.com/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/tree/audit/theorem31-finite-calibration) | Reconstruct Theorem 3.1 and calibrate its finite-(T) asymptotic step |
+| [`audit/algorithm7-composition`](https://github.com/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/tree/audit/algorithm7-composition) | Implement and test Algorithm 7 and the Figure 3 regime |
+| [`audit/claims3-5-independent`](https://github.com/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/tree/audit/claims3-5-independent) | Independently rerun Claims 3–5 with QMC, quadrature, and derivative checks |
+| [`release/claim1-visibility`](https://github.com/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/tree/release/claim1-visibility) | Make Claim 1 evidence evaluator-visible |
+| [`release/claim2-visibility`](https://github.com/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/tree/release/claim2-visibility) | Make Claim 2 evidence evaluator-visible |
+| [`release/claim6-visibility`](https://github.com/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/tree/release/claim6-visibility) | Make Claim 6 evidence evaluator-visible |
+| [`release/claims3-5-visibility`](https://github.com/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/tree/release/claims3-5-visibility) | Make Claims 3–5 evidence evaluator-visible |
+| [`release/evaluator-red-team`](https://github.com/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/tree/release/evaluator-red-team) | Final visibility and evaluator red-team gate |
+| [`release/standalone-space-root`](https://github.com/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/tree/release/standalone-space-root) | Verify the same audit from a downloaded Space root |
+| [`release/publication-metadata`](https://github.com/MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp/tree/release/publication-metadata) | Publication metadata and final release surface |
+
+[`branch-audit.md`](branch-audit.md) records the exact old-to-new branch mapping and how each branch contributes to the claim lineage.
+
+## Repository contents
+
+- `repro/src/` — executable proof certificates, mechanism definitions, checkers, controls, and release verification.
+- `reports/reproduction/` — illustrated report, figures, and command ledger.
+- `space/` — evaluator-facing claim pages, contracts, raw artifacts, controls, and historical judged snapshot.
+- `notebooks/` — interactive evidence-first reproduction tutorial.
+- `release/` — Space upload allowlists and release hashes.
+
+## Scope and limitations
+
+- The paper does not publish author code, raw Figure 2/3 coordinates, or all numerical settings; this audit uses a pinned independent implementation and preserves those substitutions explicitly.
+- Theorem 3.1 is supported by a structured Python/SymPy derivation plus finite calibration, not a Lean/Coq proof-kernel object.
+- The figures and tables establish the stated reproduction targets; they do not imply uniform SGG dominance in every dimension or privacy configuration.
+- The original judged Space revision and its score are preserved as historical evidence; later release branches are candidates until independently evaluated.
+
+## Citation
+
+```bibtex
+@misc{wei2026asymptotic,
+  title         = {Asymptotic Optimality of the High-Dimensional Gaussian Mechanism and Improved Low-Dimensional Mechanisms for Differential Privacy},
+  author        = {Wei, Yu and Bienstock, Alexander and Polychroniadou, Antigoni},
+  year          = {2026},
+  eprint        = {2606.08681},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CR},
+  url           = {https://arxiv.org/abs/2606.08681}
+}
+```
+
+## Thank you
+
+Thank you to Yu Wei, Alexander Bienstock, and Antigoni Polychroniadou for the clear theoretical framing of Gaussian optimality, the SGG mechanism family, and tight composition. This independent audit is intended to make those claims easier to inspect and reproduce.
+
+## Attribution
+
+Repository maintenance commits in the cleaned branch histories use:
+
+`MachineLearning-Nerd <37579156+MachineLearning-Nerd@users.noreply.github.com>`
+
+The paper and its authors remain the source of the research claims; this repository contains an independent reproduction and audit record.
