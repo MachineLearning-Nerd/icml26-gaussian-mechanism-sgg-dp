@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "repository": "MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp",
+  "overall_status": "ALL_C1_C6_VERIFIED_SCOPED_C1_MEDIUM_HISTORICAL_SCORE_9_OF_12_NO_CURRENT_SCORE",
+  "paper": {
+    "title": "Asymptotic Optimality of the High-Dimensional Gaussian Mechanism and Improved Low-Dimensional Mechanisms for Differential Privacy",
+    "authors": ["Yu Wei", "Alexander Bienstock", "Antigoni Polychroniadou"],
+    "arxiv": "2606.08681",
+    "claim_numbering": "v1",
+    "url": "https://arxiv.org/abs/2606.08681"
+  },
+  "claims": [
+    {"id": "C1", "status": "VERIFIED_SCOPED_MEDIUM", "paper_surface": "Theorem 3.1", "production": "Structured symbolic derivation plus finite-T calibration over 256 dimension/epsilon/radial-law configurations.", "result": "12-step derivation passes; worst finite-T calibration gap is 2.697e-4.", "boundary": "No formal proof-kernel artifact."},
+    {"id": "C2", "status": "VERIFIED_SCOPED_HIGH", "paper_surface": "Lemma 3.3", "production": "Universal Haar/isometry and joint-convexity certificate plus 56 exact finite C4-group cases and mutated-assumption controls.", "result": "Certificate passes; 56/56 finite cases pass; three negative controls reject."},
+    {"id": "C3", "status": "VERIFIED_SCOPED_HIGH", "paper_surface": "Definitions 4.1–4.2", "production": "Five adaptive normalization integrals, Gaussian and l2 identities, and a factor-p negative control.", "result": "Maximum normalization error 3.55e-15; special cases pass."},
+    {"id": "C4", "status": "VERIFIED_SCOPED_HIGH", "paper_surface": "Figure 2", "production": "Deterministic common-random-number and independent scrambled-Sobol QMC calibrations of published existence configurations.", "result": "Independent reductions 14.87%, 11.98%, and 10.02%.", "boundary": "Raw paper coordinates and optimizer settings are unpublished."},
+    {"id": "C5", "status": "VERIFIED_SCOPED_HIGH", "paper_surface": "Table 2", "production": "Analytic tangent slopes, convex tails, and tangent dominance are checked for all seven printed thresholds with rounding slack.", "result": "7/7 rows pass; delta=0.9 negative control fails as expected."},
+    {"id": "C6", "status": "VERIFIED_SCOPED_HIGH", "paper_surface": "Lemma D.1 and Algorithm 7", "production": "Paper-faithful FFT accountant is compared with direct computation in the Figure 3 regime and a 72-case broad sweep.", "result": "Figure 3 reductions rise 31.4% to 94.3%; direct/FFT agreement reaches 7.37e-18.", "boundary": "Unpublished Figure 3 coordinates/settings prevent exact coordinate matching."}
+  ],
+  "historical_external_result": {
+    "score": "9/12",
+    "space": "DineshAI/82Wosp2Iu1",
+    "protected_revision": "2d5f672ab576722614a3c86d48550e74fee2aca4",
+    "forecast": "10–12/12",
+    "current_score_claim": false
+  },
+  "publication": {
+    "publication_allowed": false,
+    "official_author_endorsement": false,
+    "author_endorsement_claimed": false
+  }
+}

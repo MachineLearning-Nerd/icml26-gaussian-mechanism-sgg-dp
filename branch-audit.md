@@ -37,7 +37,7 @@ The repository was renamed from `icml26-repro-82Wosp2Iu1-asymptotic-optimality-o
 
 ## Attribution and verification policy
 
-- Clean maintenance commits use `MachineLearning-Nerd <37579156+MachineLearning-Nerd@users.noreply.github.com>`.
+- Clean maintenance commits use `MachineLearning-Nerd <MachineLearning-Nerd@users.noreply.github.com>`.
 - The branch rename changes labels and links, not the scientific evidence or its recorded limitations.
 - `historical/judged-baseline` remains explicitly historical; its score must not be presented as a new evaluation.
 - Release branches are candidate publication surfaces until the external evaluator runs them.

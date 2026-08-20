@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "source": {
+    "arxiv": "2606.08681",
+    "claim_numbering": "v1",
+    "url": "https://arxiv.org/abs/2606.08681"
+  },
+  "required_paths": [
+    "README.md",
+    "branch-audit.md",
+    "STATUS.md",
+    "CLAIM_EVIDENCE.md",
+    "SOURCE_AUDIT.md",
+    "ENVIRONMENT.md",
+    "REPORT.md",
+    "AUTHOR_THANK_YOU.md",
+    "CITATION.cff",
+    "claims.json",
+    "reproduction_verdicts.json",
+    "AUTONOMOUS_STATE.json",
+    "verify_final.py",
+    "pyproject.toml",
+    "uv.lock",
+    "repro/src/verify.py",
+    "repro/src/proof_gaussian_optimality.py",
+    "repro/src/proof_haar.py",
+    "repro/src/check_accepted_claims.py",
+    "repro/src/algorithm7.py",
+    "space/SHA256SUMS.txt",
+    "space/UPLOAD_ALLOWLIST.txt",
+    "space/pages/current/claim1/page.md",
+    "space/pages/current/claim2/page.md",
+    "space/pages/current/claim3/page.md",
+    "space/pages/current/claim4/page.md",
+    "space/pages/current/claim5/page.md",
+    "space/pages/current/claim6/page.md",
+    ".openresearch/artifacts/release/final_run_output.json",
+    ".openresearch/artifacts/release/red_team_output.json",
+    ".openresearch/artifacts/claim1/raw_output.json",
+    ".openresearch/artifacts/claim2/raw_output.json",
+    ".openresearch/artifacts/claim3/raw_output.json",
+    ".openresearch/artifacts/claim4/raw_output.json",
+    ".openresearch/artifacts/claim5/raw_output.json",
+    ".openresearch/artifacts/claim6/raw_output.json"
+  ],
+  "artifacts": [
+    {"path": ".openresearch/artifacts/release/final_run_output.json", "sha256": "ef4e8f0911a766fdcb133116003f9b71948f3e055e35faed63004b6eaa474564", "purpose": "Cumulative six-claim release result"},
+    {"path": ".openresearch/artifacts/release/red_team_output.json", "sha256": "abf328c40216ba939e06e1184b7d5bb96faee0813f3e1821ddfafc2625f2f610", "purpose": "Evaluator visibility and protected-file red-team gate"},
+    {"path": ".openresearch/artifacts/claim1/raw_output.json", "sha256": "a9e1b20761e7b3d6f508b7988a9f8ea0dfbfa48ef13a587a966221323d8e3c39", "purpose": "Theorem 3.1 derivation and finite calibration"},
+    {"path": ".openresearch/artifacts/claim2/raw_output.json", "sha256": "15bcc3400c9e3022925e8167f87024a5593ed97ecb0a67032dfb98d3277d3752", "purpose": "Haar certificate"},
+    {"path": ".openresearch/artifacts/claim3/raw_output.json", "sha256": "c0b6546df843f4c873575fd590ab60b30c1a82e3f18ffb2f26320da5a26158a7", "purpose": "SGG family regression"},
+    {"path": ".openresearch/artifacts/claim4/raw_output.json", "sha256": "afc5eac354c5de6f62d717953febad4d5921a4de2225f29fe1683a42d9bb5584", "purpose": "Figure 2 QMC regression"},
+    {"path": ".openresearch/artifacts/claim5/raw_output.json", "sha256": "4fbe8cfc0482aaf5efe86e6a878a980cefef21c9d2c4903677ab610e3302cad8", "purpose": "Table 2 threshold audit"},
+    {"path": ".openresearch/artifacts/claim6/raw_output.json", "sha256": "5d271d53b4e70a5ce6d2ca3b69a65d47a1c190fdd1c06b3fe75af5b6e38230bd", "purpose": "Algorithm 7 composition audit"}
+  ],
+  "protected_space": {
+    "space": "DineshAI/82Wosp2Iu1",
+    "revision": "2d5f672ab576722614a3c86d48550e74fee2aca4",
+    "red_team": ".openresearch/artifacts/release/red_team_output.json"
+  }
+}

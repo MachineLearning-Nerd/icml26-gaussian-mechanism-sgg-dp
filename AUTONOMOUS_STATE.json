@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "repository": "MachineLearning-Nerd/icml26-gaussian-mechanism-sgg-dp",
+  "paper": "arXiv:2606.08681",
+  "phase": "documentation_and_attribution_normalization",
+  "overall_status": "ALL_C1_C6_VERIFIED_SCOPED_C1_MEDIUM_HISTORICAL_SCORE_9_OF_12_NO_CURRENT_SCORE",
+  "branch_count_expected": 14,
+  "reachable_commit_count_expected": 35,
+  "canonical_identity": "MachineLearning-Nerd <MachineLearning-Nerd@users.noreply.github.com>",
+  "historical_score": "9/12",
+  "forecast": "10–12/12",
+  "current_score_claim": false,
+  "publication_allowed": false,
+  "official_author_endorsement": false,
+  "recovery_bundle": {
+    "path": "/tmp/icml-gaussian-sgg-before-normalization.h5RT1B/icml-gaussian-sgg-before-normalization.bundle",
+    "sha256": "4db63b632ed4288cd0eed4ee254b539910fcdf56163976772a597fb5a593e3cb"
+  },
+  "next_action": "Rewrite all reachable commit metadata, publish documentation, force-update the fourteen descriptive heads, and verify from a fresh clone."
+}

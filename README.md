@@ -6,6 +6,11 @@ Independent claim-by-claim reproduction audit for [arXiv:2606.08681](https://arx
 
 The repository was renamed from `icml26-repro-82Wosp2Iu1-asymptotic-optimality-of-the-high-dimensional-gaussian-mechanism-and-improve` to `icml26-gaussian-mechanism-sgg-dp` so the public URL describes the paper rather than the challenge identifier.
 
+> **Audit status:** `ALL_C1_C6_VERIFIED_SCOPED_C1_MEDIUM_HISTORICAL_SCORE_9_OF_12_NO_CURRENT_SCORE`.
+> All six claim contracts pass in the cumulative evidence package. Claim 1 is medium confidence because its universal derivation is not a formal proof-kernel artifact; Claims 2–6 are high-confidence scoped checks. The historical 9/12 score is preserved, not replaced by a new judge score, and no author endorsement is claimed.
+
+The detailed claim production paths are in [`CLAIM_EVIDENCE.md`](CLAIM_EVIDENCE.md), source limits in [`SOURCE_AUDIT.md`](SOURCE_AUDIT.md), environment notes in [`ENVIRONMENT.md`](ENVIRONMENT.md), and machine-readable status in [`claims.json`](claims.json) and [`reproduction_verdicts.json`](reproduction_verdicts.json). [`verify_final.py`](verify_final.py) checks the published branch set, evidence hashes, red-team gate, and claim boundaries.
+
 ## What the paper does
 
 The paper studies additive-noise mechanisms for differential privacy in two regimes:
